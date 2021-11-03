@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react';
+import FirstNameHooks from '../../hooks/FirstNameHooks'
 
 function Signup() {
+
+    const [firstName, handleFirstNameOnChange] = FirstNameHooks()
+
     return (
         <div>
-            Sign up
+            <form>
+                <input name='firstName' />
+                <div>{firstNameError && firstNameError}</div>
+            </form>
         </div>
     )
 }
