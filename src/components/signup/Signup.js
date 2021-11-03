@@ -3,7 +3,7 @@ import FirstNameHooks from '../../hooks/FirstNameHooks'
 
 function Signup() {
 
-    const [firstName, handleFirstNameOnChange] = FirstNameHooks()
+    const [firstName, handleFirstNameOnChange, firstNameError] = FirstNameHooks()
 
     return (
         <div>

@@ -6,10 +6,10 @@ function Nav() {
         <div>
             <ul>
                 <li>
-                    <Link to='/sing-up'>Sign up</Link>
+                    <Link to='/sign-up'>Sign up</Link>
                 </li>
                 <li>
-                    <Link to='/sing-in'>Sign in</Link>
+                    <Link to='/sign-in'>Sign in</Link>
                 </li>
             </ul>
         </div>
