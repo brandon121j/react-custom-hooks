@@ -30,15 +30,15 @@ function Signup() {
     return (
         <div>
             <form onSubmit={onSubmitHandler}>
-                <input name={firstName} onChange={handleFirstNameOnChange} nFocus={() => setFirstNameOnFocus(true)} onBlur={() => setFirstNameOnBlur(true)}/>
+                <input name={firstName} onChange={handleFirstNameOnChange} onFocus={() => setFirstNameOnFocus(true)} onBlur={() => setFirstNameOnBlur(true)} placeholder='First name'/>
                 <div>{firstNameError && firstNameError}</div>
-                <input name={lastName} onChange={handleLastNameOnChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnBlur(true)}/>
+                <input name={lastName} onChange={handleLastNameOnChange} onFocus={() => setOnFocus(true)} onBlur={() => setOnBlur(true)} placeholder='Last name'/>
                 <div>{lastNameError && lastNameError}</div>
-                <input name={email} onChange={handleEmailOnChange} onFocus={() => setEmailOnFocus(true)} onBlur={() => setEmailOnBlur(true)}/>
+                <input name={email} onChange={handleEmailOnChange} onFocus={() => setEmailOnFocus(true)} onBlur={() => setEmailOnBlur(true)} placeholder='Email'/>
                 <div>{emailError && emailError}</div>
-                <input name={username} onChange={handleUsernameOnChange} onFocus={() => setUsernameOnFocus(true)} onBlur={() => setUsernameOnBlur(true)}/>
+                <input name={username} onChange={handleUsernameOnChange} onFocus={() => setUsernameOnFocus(true)} onBlur={() => setUsernameOnBlur(true)} placeholder='Username'/>
                 <div>{usernameError && usernameError}</div>
-                <input name={password} onChange={handlePasswordOnChange} onFocus={() => setPasswordOnFocus(true)} onBlur={() => setPasswordOnBlur(true)}/>
+                <input name={password} onChange={handlePasswordOnChange} onFocus={() => setPasswordOnFocus(true)} onBlur={() => setPasswordOnBlur(true)} placeholder='Password'/>
                 <div>{passwordError && passwordError}</div>
 
                 <button type='submit'>Submit</button>

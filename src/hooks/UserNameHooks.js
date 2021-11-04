@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { isAlpha } from 'validator';
+import { isAlphanumeric } from 'validator';
 
 function UserNameHooks() {
 	const [username, setUsername] = useState('');
@@ -10,11 +10,11 @@ function UserNameHooks() {
 	useEffect(() => {
 		if (onFocus) {
 			if (username.length > 0) {
-				if (!isAlpha(username)) {
+				if (!isAlphanumeric(username)) {
 					setError('Cannot have special character or number');
 				}
 
-				if (isAlpha(username)) {
+				if (isAlphanumeric(username)) {
 					setError('');
 				}
 			}

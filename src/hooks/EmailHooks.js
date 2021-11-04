@@ -22,7 +22,7 @@ function EmailHooks() {
 
         if (onBlur) {
             if (email.length === 0) {
-                setError('Password cannot be empty')
+                setError('Email cannot be empty')
             }
         }
 
