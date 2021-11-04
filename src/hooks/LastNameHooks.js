@@ -5,6 +5,7 @@ function LastNameHooks() {
 	const [lastName, setLastName] = useState('');
 	const [error, setError] = useState('');
 	const [onFocus, setOnFocus] = useState(false);
+    const [onBlur, setOnBlur] = useState(false)
 
 	useEffect(() => {
 		if (onFocus) {
@@ -12,15 +13,28 @@ function LastNameHooks() {
 				if (!isAlpha(lastName)) {
 					setError('Cannot have special character or number');
 				}
+
+                if(isAlpha(lastName)){
+                    setError("")
+                }
 			}
 		}
-	}, [lastName, onFocus]);
 
-	function handleLastNAmeOnChange(e) {
+        if (onBlur) {
+            if (lastName.length === 0) {
+                setError('Last name cannot be empty')
+            }
+        }
+
+	}, [lastName, onFocus, onBlur]);
+
+
+
+	function handleLastNameOnChange(e) {
 		setLastName(e.target.value);
 	}
 
-	return [lastName, handleLastNAmeOnChange, error, setOnFocus];
+	return [lastName, handleLastNameOnChange, error, setOnFocus, setOnBlur];
 }
 
 export default LastNameHooks;
