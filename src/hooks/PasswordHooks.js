@@ -11,7 +11,7 @@ function PasswordHooks() {
 		if (onFocus) {
 			if (password.length > 0) {
 				if (!isStrongPassword(password)) {
-					setError('Cannot have special character or number');
+					setError('Minimum length is 8 characters, 1 lowercase, 1uppercase, 1 symbol');
 				}
 
                 if (isStrongPassword(password)) {
