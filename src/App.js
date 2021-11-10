@@ -9,14 +9,14 @@ import Nav from './components/nav/Nav';
 function App() {
 	return (
 		<div className="App">
-			<ToastContainer />
+			<ToastContainer theme='colored' />
 			<Router>
-				<Nav />
-				<Switch>
-					<Route path="/sign-up" component={Signup} />
-					<Route path="/sign-in" component={Signin} />
+				<Nav user={user}/>
+				<Routes>
+					<Route path="/sign-up" element={Signup} />
+					<Route path="/sign-in" element={Signin} />
 					<Route path="/" render={() => <h1>Home Page</h1>} />
-				</Switch>
+				</Routes>
 			</Router>
 		</div>
 	);
