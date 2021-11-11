@@ -25,7 +25,7 @@ function App() {
 			} else {
 				setUser({
 					email: decodedToken.email,
-					password: decodedToken.password
+					username: decodedToken.username
 				})
 			}
 		}
