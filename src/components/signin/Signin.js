@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate, useEffect } from 'react-router';
 import { toast } from 'react-toastify';
 import jwtDecode from 'jwt-decode';
+import { useNavigate } from 'react-router-dom';
 import CheckToken from '../../hooks/CheckToken';
 
 function Signin({ setUser }) {
@@ -10,21 +11,13 @@ function Signin({ setUser }) {
 
 	const navigate = useNavigate();
 
+	const [checkJwtToken] = CheckToken();
+
     useEffect(() => {
-		let jwtToken = window.localStorage.getItem('jwtToken');
-
-		if (jwtToken) {
-			let decodedToken = jwtDecode(jwtToken);
-
-			const currentTime = Date.now() / 1000;
-
-			if (decodedToken.exp < currentTime) {
-                window.localStorage.removeItem('jwtToken');
-			} else {
-                navigate('/')
-			}
+		if (isAuth) {
+			navigate('/')
 		}
-	}, [])
+	}, [isAuth])
 
 	async function handleSubmit(e) {
 		e.preventDefault();

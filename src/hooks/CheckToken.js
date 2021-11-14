@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
 
@@ -16,20 +16,16 @@ function CheckToken() {
             if (decodedToken.exp < currentTime) {
                 window.localStorage.removeItem('jwtToken');
 
-                setIsAuth(false);
+                return false;
             } else {
-                setIsAuth(true);
+                return true;
             }
         } else {
-            setIsAuth(false);
+            return false;
         }
     }
 
-    useEffect(() => {
-        checkJwtToken();
-    }, []);
-
-    return [isAuth];
+    return [checkJwtToken];
 }
 
 
