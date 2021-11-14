@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,6 +16,7 @@ function Signup() {
 		setFirstNameOnFocus,
 		setFirstNameOnBlur,
 	] = FirstNameHooks();
+	
 	const [
 		lastName,
 		handleLastNameOnChange,
@@ -23,6 +24,7 @@ function Signup() {
 		setOnFocus,
 		setOnBlur,
 	] = LastNameHooks();
+
 	const [
 		password,
 		handlePasswordOnChange,
@@ -30,6 +32,7 @@ function Signup() {
 		setPasswordOnFocus,
 		setPasswordOnBlur,
 	] = PasswordHooks();
+
 	const [
 		email,
 		handleEmailOnChange,
@@ -37,6 +40,7 @@ function Signup() {
 		setEmailOnFocus,
 		setEmailOnBlur,
 	] = EmailHooks();
+
 	const [
 		username,
 		handleUsernameOnChange,
@@ -44,6 +48,24 @@ function Signup() {
 		setUsernameOnFocus,
 		setUsernameOnBlur,
 	] = UserNameHooks();
+
+	const navigate = useNavigate();
+
+    useEffect(() => {
+		let jwtToken = window.localStorage.getItem('jwtToken');
+
+		if (jwtToken) {
+			let decodedToken = jwtDecode(jwtToken);
+
+			const currentTime = Date.now() / 1000;
+
+			if (decodedToken.exp < currentTime) {
+                window.localStorage.removeItem('jwtToken');
+			} else {
+                navigate('/')
+			}
+		}
+	}, [])
 
 	const onSubmitHandler = async (e) => {
 		e.preventDefault();

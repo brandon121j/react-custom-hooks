@@ -17,13 +17,9 @@ function Signin({ setUser }) {
 			const currentTime = Date.now() / 1000;
 
 			if (decodedToken.exp < currentTime) {
-				window.localStorage.removeItem('jwtToken');
-				setUser(null)
+                window.localStorage.removeItem('jwtToken');
 			} else {
-				setUser({
-					email: decodedToken.email,
-					username: decodedToken.username
-				})
+                navigate('/')
 			}
 		}
 	}, [])
