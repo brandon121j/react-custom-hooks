@@ -1,17 +1,18 @@
 import { useState, useEffect } from 'react';
 import { isAlphanumeric } from 'validator';
-
-function UserNameHooks() {
+function UsernameHooks() {
 	const [username, setUsername] = useState('');
 	const [error, setError] = useState('');
+
 	const [onFocus, setOnFocus] = useState(false);
-    const [onBlur, setOnBlur] = useState(false)
+
+	const [onBlur, setOnBlur] = useState(false);
 
 	useEffect(() => {
 		if (onFocus) {
 			if (username.length > 0) {
 				if (!isAlphanumeric(username)) {
-					setError('Cannot have special character or number');
+					setError('username cannot have special character');
 				}
 
 				if (isAlphanumeric(username)) {
@@ -20,15 +21,12 @@ function UserNameHooks() {
 			}
 		}
 
-        if (onBlur) {
-            if (username.length === 0) {
-                setError('Username cannot be empty')
-            }
-        }
-
+		if (onBlur) {
+			if (username.length === 0) {
+				setError('username cannot be empty');
+			}
+		}
 	}, [username, onFocus, onBlur]);
-
-
 
 	function handleUsernameOnChange(e) {
 		setUsername(e.target.value);
@@ -37,4 +35,4 @@ function UserNameHooks() {
 	return [username, handleUsernameOnChange, error, setOnFocus, setOnBlur];
 }
 
-export default UserNameHooks;
+export default UsernameHooks;

@@ -4,31 +4,32 @@ import { isStrongPassword } from 'validator';
 function PasswordHooks() {
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState('');
+
 	const [onFocus, setOnFocus] = useState(false);
-    const [onBlur, setOnBlur] = useState(false)
+
+	const [onBlur, setOnBlur] = useState(false);
 
 	useEffect(() => {
 		if (onFocus) {
 			if (password.length > 0) {
 				if (!isStrongPassword(password)) {
-					setError('Minimum length is 8 characters, 1 lowercase, 1uppercase, 1 symbol');
+					setError(
+						'password must container 1 uppercase, 1 lowercase, 1 number and a special character'
+					);
 				}
 
-                if (isStrongPassword(password)) {
+				if (isStrongPassword(password)) {
 					setError('');
 				}
 			}
 		}
 
-        if (onBlur) {
-            if (password.length === 0) {
-                setError('Password cannot be empty')
-            }
-        }
-
+		if (onBlur) {
+			if (password.length === 0) {
+				setError('password cannot be empty');
+			}
+		}
 	}, [password, onFocus, onBlur]);
-
-
 
 	function handlePasswordOnChange(e) {
 		setPassword(e.target.value);
