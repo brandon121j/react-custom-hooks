@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import jwtDecode from 'jwt-decode';
 import { useNavigate } from 'react-router-dom';
 
 import FirstNameHooks from '../../hooks/FirstNameHooks';
@@ -59,7 +60,7 @@ function Signup() {
 		try {
 			let url =
 				process.env.NODE_ENV === 'production'
-					? 'https://team-2-movie-backend.herokuapp.com/api/users/create-user'
+					? 'https://term2-movie-backend.herokuapp.com/api/users/create-user'
 					: 'http://localhost:3001/api/users/create-user';
 
 			await axios.post(url, {

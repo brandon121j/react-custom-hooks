@@ -12,7 +12,7 @@ function Favorites() {
 		try {
 			let url =
 				process.env.NODE_ENV === 'production'
-					? 'https://team-2-movie-backend.herokuapp.com/api/movie/get-favorites-movies'
+					? 'https://term2-movie-backend.herokuapp.com/api/movie/get-favorites-movies'
 					: 'http://localhost:3001/api/movie/get-favorites-movies';
 
 			let payload = await axios.get(url, {
@@ -31,7 +31,7 @@ function Favorites() {
 		try {
 			let url =
 				process.env.NODE_ENV === 'production'
-					? `https://team-2-movie-backend.herokuapp.com/api/movie/delete-by-id/${movieID}`
+					? `https://flamboyant-haibt-47dfd7.netlify.app/api/movie/delete-by-id/${movieID}`
 					: `http://localhost:3001/api/movie/delete-by-id/${movieID}`;
 
 			let payload = await axios.delete(url, {

@@ -31,7 +31,7 @@ function Signin({ setUser }) {
 		try {
 			let url =
 				process.env.NODE_ENV === 'production'
-					? 'https://team-2-movie-backend.herokuapp.com/api/users/login'
+					? 'https://term2-movie-backend.herokuapp.com/api/users/login'
 					: 'http://localhost:3001/api/users/login';
 
 			let payload = await axios.post(url, {
